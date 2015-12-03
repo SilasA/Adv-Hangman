@@ -1,6 +1,8 @@
 #ifndef NEW_GAME_H
 #define NEW_GAME_H
 
+#include "stdafx.h"
+
 #include <string>
 #include <iostream>
 
@@ -33,6 +35,10 @@ public:
 	New_Game()
 	{
 		this->instructions();
+	}
+
+	~New_Game()
+	{
 	}
 
 private:

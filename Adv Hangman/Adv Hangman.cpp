@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "Game.h"
+#include "Game_Handler.h"
 
 #include <string>
 #include <iostream>
@@ -10,19 +10,33 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Game *game;
+	Game_Handler *game_handler;
+	char playagain;
 
-	while (true)
+	do
 	{
-		game = new Game;
-
-		if (game->gamestate != game->GameState::PLAYING)
+		while (true)
 		{
-			game->end_game = new End_Game(game);
-			break;
+			game_handler = new Game_Handler;
+
+			game_handler->updateGame();
+
+			if (game_handler->game->gamestate != game_handler->game->GameState::PLAYING)
+				break;
 		}
 
-	}
+		delete game_handler;
+
+		do
+		{
+			std::cout << "Would you like to play again? [y/n]: ";
+			std::cin >> playagain;
+
+		} while (playagain != 'n');
+
+
+	} while (playagain == 'y');
+
 
 	return 0;
 }

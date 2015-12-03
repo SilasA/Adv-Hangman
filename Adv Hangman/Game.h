@@ -3,9 +3,9 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "stdafx.h"
 #include "New_Game.h"
 #include "End_Game.h"
-#include "Game_Handler.h"
 
 #include <string>
 
@@ -25,17 +25,24 @@ public:
 
 	// Word to guess
 	std::string mystword;
+
 	// available letters
 	char availLetters[26];
+
 	// Hangman limbs
-	char boardchar[6] = { 'O', '|', '/', '\\', '/', '\\' };
+	char boardchar[6];
+
 	// The users current hangman
 	char currentHangman[6];
+
 	// Wrong characters entered
 	char wrongChar[6];
 
 	// Blanks representing each characters in the mystery word
 	char *wordDisplay;
+
+	// count of how many strikes the user has
+	int limbCount;
 
 	// Alphabet
 	std::string alphabet = "abcdefghijklmnopqrstuvwxyz";

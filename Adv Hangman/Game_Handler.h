@@ -3,6 +3,7 @@
 #ifndef GAME_HANDLER_H
 #define GAME_HANDLER_H
 
+#include "stdafx.h"
 #include "Game.h"
 
 #include <string>
@@ -23,14 +24,22 @@ private:
 
 	// Checks if the player won, lost, or none
 	void updateGameState();
+
 	// Check and call result for win/lose
 	void checkWL();
+
 	// Displays the game board
 	void display(Game *game);
+
 	// Checks if the player used the letter previously and/or it's a character
 	bool validateCharUse(char input);
+
 	// Gets a character from the player
 	char getInput();
+	
+	// Adds the users input to the game board arrays
+	void addInputValid(char input);
+	void addInputInvalid(char input);
 
 };
 
