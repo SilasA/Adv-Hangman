@@ -5,6 +5,7 @@
 
 #include "New_Game.h"
 #include "End_Game.h"
+#include "Game_Handler.h"
 
 #include <string>
 
@@ -15,7 +16,9 @@ class Game
 
 public:
 
-	enum GameState { PLAYING, WIN, LOSE };
+	enum GameState { PLAYING, WIN, LOSE, ERROR };
+
+	GameState gamestate;
 
 	New_Game *new_game;
 	End_Game *end_game(Game *game);
@@ -31,8 +34,14 @@ public:
 	// Wrong characters entered
 	char wrongChar[6];
 
+	// Blanks representing each characters in the mystery word
+	char *wordDisplay;
+
+	// Alphabet
+	std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+
 	// Gets the length of the mystery word
-	int getLength();
+	int getLength() { return this->mystword.length(); }
 
 	Game();
 	~Game();

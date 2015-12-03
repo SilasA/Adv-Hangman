@@ -16,15 +16,15 @@ public:
 	}
 
 	// Fills the hangman with ' ' or nothing, equal to no hangman
-	char setCurrentHangman();
+	char * setCurrentHangman();
 
 	// Fills the available characters array with the alphabet
-	char setAvailLetters();
+	char * setAvailLetters(std::string alphabet);
 
 	// Fills the wrong character array with blanks, equal to no wrong characters
-	char setWrongChar();
+	char * setWrongChar();
 
-	char setWordDisplay();
+	char * setWordDisplay(int length);
 
 	// Finds the mystery word from a text file
 	std::string getWord();
