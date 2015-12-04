@@ -8,45 +8,44 @@
 #include <fstream>
 
 
-char * New_Game::setCurrentHangman()
+void New_Game::setCurrentHangman()
 {
-	char tempArray[6];
+	this->tempArray1 = new char[6];
 
 	for (int i = 0; i < 6; i++)
-		tempArray[i] = ' ';
+		this->tempArray1[i] = ' ';
 
-	return tempArray;
+	return;
 }
 
-char * New_Game::setAvailLetters(std::string alphabet)
+void New_Game::setAvailLetters(std::string alphabet)
 {
-	char tempArray[26];
+	this->tempArray2 = new char[26];
 
 	for (int i = 0; i < 26; i++)
-		tempArray[i] = alphabet[i];
+		this->tempArray2[i] = alphabet[i];
 
-	return tempArray;
+	return;
 }
 
-char * New_Game::setWrongChar()
+void New_Game::setWrongChar()
 {
-	char tempArray[6];
+	this->tempArray3 = new char[6];
 
 	for (int i = 0; i < 6; i++)
-		tempArray[i] = ' ';
+		this->tempArray3[i] = ' ';
 
-	return tempArray;
+	return;
 }
 
-char * New_Game::setWordDisplay(int length)
+void New_Game::setWordDisplay(int length)
 {
-	char *tempArray;
-	tempArray = new char[length];
+	this->tempArray4 = new char[length];
 
 	for (int i = 0; i < length; i++)
-		tempArray[i] = '_';
+		this->tempArray4[i] = '_';
 
-	return tempArray;
+	return;
 }
 
 std::string New_Game::getWord()

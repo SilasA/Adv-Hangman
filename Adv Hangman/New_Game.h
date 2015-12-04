@@ -11,6 +11,11 @@ class New_Game
 
 public:
 
+	char *tempArray1;
+	char *tempArray2;
+	char *tempArray3;
+	char *tempArray4;
+
 	// User instructions
 	void instructions()
 	{		
@@ -18,15 +23,15 @@ public:
 	}
 
 	// Fills the hangman with ' ' or nothing, equal to no hangman
-	char * setCurrentHangman();
+	void setCurrentHangman();
 
 	// Fills the available characters array with the alphabet
-	char * setAvailLetters(std::string alphabet);
+	void setAvailLetters(std::string alphabet);
 
 	// Fills the wrong character array with blanks, equal to no wrong characters
-	char * setWrongChar();
+	void setWrongChar();
 
-	char * setWordDisplay(int length);
+	void setWordDisplay(int length);
 
 	// Finds the mystery word from a text file
 	std::string getWord();
@@ -39,6 +44,10 @@ public:
 
 	~New_Game()
 	{
+		delete[] this->tempArray1;
+		delete[] this->tempArray2;
+		delete[] this->tempArray3;
+		delete[] this->tempArray4;
 	}
 
 private:

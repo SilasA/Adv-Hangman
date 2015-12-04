@@ -13,13 +13,11 @@ public:
 	// Temp holder for the mystery word
 	std::string *word;
 
-	End_Game(std::string mystWord);
-	~End_Game();
-
-private:
-
 	void game_win();
 	void game_lose();
+	
+	End_Game(std::string mystWord);
+	~End_Game();	
 
 };
 

@@ -21,7 +21,7 @@ public:
 	GameState gamestate;
 
 	New_Game *new_game;
-	End_Game *end_game(Game *game);
+	End_Game *end_game;
 
 	// Word to guess
 	std::string mystword;
@@ -29,8 +29,8 @@ public:
 	// available letters
 	char availLetters[26];
 
-	// Hangman limbs
-	char boardchar[6];
+	// Hangman limbs / establishing function
+	static const char boardchar[6];
 
 	// The users current hangman
 	char currentHangman[6];

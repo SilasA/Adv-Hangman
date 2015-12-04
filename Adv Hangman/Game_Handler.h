@@ -17,11 +17,6 @@ public:
 
 	void updateGame();
 	
-	Game_Handler();
-	~Game_Handler();
-
-private:
-
 	// Checks if the player won, lost, or none
 	void updateGameState();
 
@@ -40,7 +35,9 @@ private:
 	// Adds the users input to the game board arrays
 	void addInputValid(char input);
 	void addInputInvalid(char input);
-
+	
+	Game_Handler();
+	~Game_Handler();
 };
 
 #endif /* GAME_HANDLER_H */
