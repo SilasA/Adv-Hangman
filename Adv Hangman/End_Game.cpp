@@ -27,7 +27,7 @@ void End_Game::game_win()
 
 void End_Game::game_lose()
 {
-	std::cout << "Better luck next time, the word was " << this->word << "." << std::endl;
+	std::cout << "Better luck next time; the word was " << *this->word << "." << std::endl;
 	return;
 }
 

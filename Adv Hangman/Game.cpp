@@ -10,24 +10,78 @@
 const char Game::boardchar[6] = { 'O', '|', '/', '\\', '/', '\\' };
 
 
+#include <time.h>
+#include <string>
+#include <sstream>
+#include <iostream>
+#include <fstream>
+
+
+void Game::setWordDisplay()
+{
+	this->wordDisplay = new char[this->getLength()];
+
+	for (int i = 0; i < this->getLength(); i++)
+		this->wordDisplay[i] = '_';
+
+	return;
+}
+
+std::string Game::getWord()
+{
+	std::string tempWord;
+
+	std::ifstream dict("Dictionary.txt");
+	if (dict.is_open())
+	{
+		int l = 0;
+
+		try {
+			this->tempWordList = new std::string[126];
+		}
+		catch (std::exception ex)
+		{
+			std::cerr << ex.what() << std::endl;
+		}
+
+		while (dict.good() && l < 126)
+		{
+			std::getline(dict, tempWord);
+			this->tempWordList[l] = tempWord;
+			l++;
+		}
+	}
+
+	else
+		std::cout << "Dictionary could not be found." << std::endl;
+
+	srand((unsigned int)time(NULL));
+
+	int rn = rand() % 126;  // RNG 
+	std::string word = tempWordList[rn];
+
+	delete[] this->tempWordList;
+
+	return word;
+}
+
+
 Game::Game()
 {
-	new_game = new New_Game;
-	this->limbCount = 0;
-	this->mystword = new_game->getWord();
+	this->new_game = new New_Game;
 
-	this->new_game->setCurrentHangman();
-	this->currentHangman[6] = *new_game->tempArray1;
+	for (int i = 0; i < 6; i++)
+		this->currentHangman[i] = ' ';
 
-	this->new_game->setAvailLetters(this->alphabet);
-	this->availLetters[26] = *new_game->tempArray2;
+	for (int i = 0; i < 6; i++)
+		this->wrongChar[i] = ' ';
 
-	this->new_game->setWrongChar();
-	this->wrongChar[6] = *new_game->tempArray3;
+	for (int i = 0; i < 26; i++)
+		this->availLetters[i] = this->alphabet[i];
 
-	this->new_game->setWordDisplay(this->getLength());
-	this->wordDisplay = new char[this->getLength()];
-	this->wordDisplay = new_game->tempArray4;
+	this->mystword = this->getWord();
+	
+	this->setWordDisplay();
 
 	delete new_game;
 }

@@ -27,16 +27,16 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		delete game_handler;
 
-		do
+		while (true)
 		{
 			std::cout << "Would you like to play again? [y/n]: ";
 			std::cin >> playagain;
 
-		} while (playagain != 'n');
-
+			if (playagain == 'y' || playagain == 'n')
+				break;
+		}
 
 	} while (playagain == 'y');
-
 
 	return 0;
 }

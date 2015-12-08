@@ -9,7 +9,6 @@
 
 #include <string>
 
-// enum class GameState { PLAYING, WIN, LOSE };
 
 class Game
 {
@@ -29,7 +28,7 @@ public:
 	// available letters
 	char availLetters[26];
 
-	// Hangman limbs / establishing function
+	// Hangman limbs
 	static const char boardchar[6];
 
 	// The users current hangman
@@ -40,15 +39,21 @@ public:
 
 	// Blanks representing each characters in the mystery word
 	char *wordDisplay;
+	void setWordDisplay();
 
-	// count of how many strikes the user has
-	int limbCount;
+	// Count of how many strikes the user has
+	int limbCount = 0;
 
-	// Alphabet
 	std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+	// List of available words from the dictionary
+	std::string *tempWordList;
 
 	// Gets the length of the mystery word
 	int getLength() { return this->mystword.length(); }
+
+	// Finds the mystery word from a text file
+	std::string getWord();
 
 	Game();
 	~Game();
