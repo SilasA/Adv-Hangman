@@ -10,11 +10,13 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Game_Handler *game_handler;
-	char playagain;
+	Game_Handler *game_handler; 
+	char playagain; // Exit promt entry
 
+	// Main Loop
 	do
 	{
+		// Game Loop
 		while (true)
 		{
 			game_handler = new Game_Handler;
@@ -27,6 +29,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		delete game_handler;
 
+		// Exit prompt loop
 		while (true)
 		{
 			std::cout << "Would you like to play again? [y/n]: ";
@@ -35,6 +38,8 @@ int _tmain(int argc, _TCHAR* argv[])
 			if (playagain == 'y' || playagain == 'n')
 				break;
 		}
+
+		system("CLS"); 
 
 	} while (playagain == 'y');
 

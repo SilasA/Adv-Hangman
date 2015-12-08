@@ -9,14 +9,13 @@
 
 #include <string>
 
-
+// Contains all game elements and their initializing methods
 class Game
 {
 
 public:
 
 	enum GameState { PLAYING, WIN, LOSE, ERROR };
-
 	GameState gamestate;
 
 	New_Game *new_game;
@@ -38,8 +37,8 @@ public:
 	char wrongChar[6];
 
 	// Blanks representing each characters in the mystery word
-	char *wordDisplay;
 	void setWordDisplay();
+	char *wordDisplay;
 
 	// Count of how many strikes the user has
 	int limbCount = 0;
@@ -55,6 +54,7 @@ public:
 	// Finds the mystery word from a text file
 	std::string getWord();
 
+	// Calls initializing methods or initializes locally
 	Game();
 	~Game();
 

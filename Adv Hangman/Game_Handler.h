@@ -8,6 +8,7 @@
 
 #include <string>
 
+// Controls and maintains the game by checking the win status and updating the game elements
 class Game_Handler
 {
 
@@ -26,7 +27,7 @@ public:
 	// Displays the game board
 	void display(Game *game);
 
-	// Checks if the player used the letter previously and/or it's a character
+	// Checks if the player used the letter previously and/or if its in the word
 	bool validateCharUse(char input);
 
 	// Gets a character from the player

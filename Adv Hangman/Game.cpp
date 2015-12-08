@@ -5,16 +5,14 @@
 
 #include <string>
 #include <iostream>
-
-
-const char Game::boardchar[6] = { 'O', '|', '/', '\\', '/', '\\' };
-
-
 #include <time.h>
 #include <string>
 #include <sstream>
 #include <iostream>
 #include <fstream>
+
+
+const char Game::boardchar[6] = { 'O', '|', '/', '\\', '/', '\\' };
 
 
 void Game::setWordDisplay()
@@ -55,6 +53,7 @@ std::string Game::getWord()
 	else
 		std::cout << "Dictionary could not be found." << std::endl;
 
+	// Seed from time
 	srand((unsigned int)time(NULL));
 
 	int rn = rand() % 126;  // RNG 

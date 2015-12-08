@@ -22,7 +22,24 @@ Adv Hangman.vcxproj.filters
     "Source Files" filter).
 
 Adv Hangman.cpp
-    This is the main application source file.
+    This is the main application source file.  It contains the main loop and is responsible for 
+	Creating and maintaining the Game_Handler object and for prompting to exit.
+
+Game_Handler.cpp
+	This maintains the game and displays the board every entry.  It updates the game every entry
+	by replacing/adding elements to the appropriate array(s) and checking the game state.
+
+Game.cpp
+	This is where all the game items and methods, such as the mystery word and the hangman, are
+	located.  When created, the game constructor fills the arrays and variables with the appropriate
+	content.  It, for the mystery word, also reads from a dictionary file to select a word.
+
+New_Game.h
+	It displays the instructions when constructed then is redundant until deletion.
+
+End_Game.cpp
+	This handles the result of the completed game.  It displays wither the winning or losing message 
+	for the user once they have either won or lost.
 
 /////////////////////////////////////////////////////////////////////////////
 Other standard files:
@@ -33,6 +50,8 @@ StdAfx.h, StdAfx.cpp
 
 /////////////////////////////////////////////////////////////////////////////
 Other notes:
+
+Make sure the dictionary file is in the correct directory (debug folder with the executable).
 
 AppWizard uses "TODO:" comments to indicate parts of the source code you
 should add to or customize.

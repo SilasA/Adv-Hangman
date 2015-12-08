@@ -5,6 +5,7 @@
 
 #include <string>
 
+// Handles the final result of the completed game
 class End_Game
 {
 
@@ -16,6 +17,7 @@ public:
 	void game_win();
 	void game_lose();
 	
+	// Requires the myster word so it can display it
 	End_Game(std::string mystWord);
 	~End_Game();	
 
